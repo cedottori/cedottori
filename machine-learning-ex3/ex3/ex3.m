@@ -60,15 +60,8 @@ X_t = [ones(5,1) reshape(1:15,5,3)/10];
 y_t = ([1;0;1;0;1] >= 0.5);
 lambda_t = 3;
 
-% INCLUIDO
-theta = theta_t'
-X     = X_t'
-y     = y_t'
-lambda=lambda_t
-
-[J] = lrCostFunction(theta, X, y, lambda);
-
-% [J grad] = lrCostFunction(theta_t, X_t, y_t, lambda_t); ORIGINAL
+% ORIGINAL
+[J grad] = lrCostFunction(theta_t, X_t, y_t, lambda_t); 
 
 fprintf('\nCost: %f\n', J);
 fprintf('Expected cost: 2.534819\n');

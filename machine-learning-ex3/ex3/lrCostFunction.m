@@ -36,26 +36,26 @@ grad = zeros(size(theta));
 %           temp(1) = 0;   % because we don't add anything for j = 0  
 %           grad = grad + YOUR_CODE_HERE (using the temp variable)
 %
-results1      = theta*X
+
+% multiply theta by X
+results1      = X*(theta)% should be theta'*X
 hypothesis    = sigmoid(results1)
 
 term_cost     = (-y.*(log(hypothesis))) - ((1-y).*(log(1-hypothesis)))
 summation     = (sum(term_cost)/m)
 
-J             = summation
-
-%lambda     
+% lambda     
 summation_lambda = (lambda/(2*m)) * (sum(theta(2:n).^2))
+
 J = summation + summation_lambda
 
-
 % GRADIENT PART
-for j = 1:length(theta)
+%for j = 1:length(theta)
       
-    subtraction   = hypothesis-y;
-    multiply      = subtraction.*X(:,j); # multiplies by vector of values
-    grad(j,1)     = sum(multiply)/m;
+%    subtraction   = hypothesis-y;
+%    multiply      = subtraction.*X(:,j); # multiplies by vector of values
+%    grad(j,1)     = sum(multiply)/m;
       
-endfor
+%endfor
 
 end

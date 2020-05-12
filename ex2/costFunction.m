@@ -22,7 +22,7 @@ grad = zeros(size(theta));
 %
 
 % multiply theta by X
-results1      = X*theta % should be theta'*X
+results1      = X*theta % should be theta'.*X
 hypothesis    = sigmoid(results1)
 
 term_cost     = (-y.*(log(hypothesis))) - ((1-y).*(log(1-hypothesis)))
