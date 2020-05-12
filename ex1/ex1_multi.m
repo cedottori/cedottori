@@ -54,7 +54,6 @@ fprintf('Normalizing Features ...\n');
 % Add intercept term to X
 X = [ones(m, 1) X];
 
-
 %% ================ Part 2: Gradient Descent ================
 
 % ====================== YOUR CODE HERE ======================
@@ -82,7 +81,7 @@ X = [ones(m, 1) X];
 fprintf('Running gradient descent ...\n');
 
 % Choose some alpha value
-alpha = 0.01;
+alpha     = 0.3;
 num_iters = 400;
 
 % Init Theta and Run Gradient Descent 
@@ -104,7 +103,15 @@ fprintf('\n');
 % ====================== YOUR CODE HERE ======================
 % Recall that the first column of X is all-ones. Thus, it does
 % not need to be normalized.
-price = 0; % You should change this
+theta
+sigma
+mu
+
+predictData     = [ 1650 3] 
+predictDataNorm = (predictData-sigma)./mu
+predictDataPrep = [1 predictDataNorm]
+
+price = predictDataPrep*theta; % You should change this
 
 
 % ============================================================
@@ -130,26 +137,28 @@ fprintf('Solving with normal equations...\n');
 %
 
 %% Load Data
-data = csvread('ex1data2.txt');
-X = data(:, 1:2);
-y = data(:, 3);
+data2 = csvread('ex1data2.txt');
+X = data2(:, 1:2);
+y = data2(:, 3);
 m = length(y);
 
 % Add intercept term to X
 X = [ones(m, 1) X];
 
 % Calculate the parameters from the normal equation
-theta = normalEqn(X, y);
+thetaNE = normalEqn(X, y);
 
 % Display normal equation's result
 fprintf('Theta computed from the normal equations: \n');
-fprintf(' %f \n', theta);
+fprintf(' %f \n', thetaNE);
 fprintf('\n');
+
 
 
 % Estimate the price of a 1650 sq-ft, 3 br house
 % ====================== YOUR CODE HERE ======================
-price = 0; % You should change this
+predictDataNE = [1 1650 3] 
+price         = predictDataNE*thetaNE; % You should change this
 
 
 % ============================================================

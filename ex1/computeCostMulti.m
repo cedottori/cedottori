@@ -12,10 +12,12 @@ J = 0;
 % ====================== YOUR CODE HERE ======================
 % Instructions: Compute the cost of a particular choice of theta
 %               You should set J to the cost.
+hypothesis  = X*theta;
+subtraction = hypothesis-y;
+squared     = subtraction.^2;
+cost        = (1/(2*m))*(sum(squared));
 
-
-
-
+J           = cost;
 
 % =========================================================================
 
